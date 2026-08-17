@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://cargo-kg-backend.up.railway.app/api/:path*"
+      "destination": "https://cargo-kg-backend.onrender.com/api/:path*"
     },
     {
       "source": "/((?!assets/|.*\\..*).*)",

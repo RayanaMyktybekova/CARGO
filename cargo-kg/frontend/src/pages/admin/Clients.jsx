@@ -15,7 +15,7 @@ const Clients = () => {
   const fetchClients = async () => {
     try {
       const res = await api.get('/admin/clients', { params: { search } });
-      setClients(res.data);
+      setClients(res.data.data || res.data || []);
     } catch (err) {
       console.error(err);
     }

@@ -16,7 +16,7 @@ const Shipments = () => {
   const fetchShipments = async () => {
     try {
       const res = await api.get('/admin/shipments', { params: { search } });
-      setShipments(res.data);
+      setShipments(res.data.data || res.data || []);
     } catch (err) {
       console.error(err);
     }
