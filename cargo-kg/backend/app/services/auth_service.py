@@ -1,4 +1,4 @@
-from passlib.context import CryptContext
+import bcrypt
 from datetime import datetime, timedelta
 from jose import jwt
 from app.config import settings
@@ -7,13 +7,18 @@ from app.models.user import User
 from app.schemas.auth import RegisterRequest
 from app.dependencies import auto_generate_client_code
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
 def hash_password(plain: str) -> str:
-    return pwd_context.hash(plain[:72])
+    pwd_bytes = plain.encode('utf-8')[:72]
+    salt = bcrypt.gensalt()
+    return bcrypt.hashpw(pwd_bytes, salt).decode('utf-8')
 
 def verify_password(plain: str, hashed: str) -> bool:
-    return pwd_context.verify(plain[:72], hashed)
+    try:
+        pwd_bytes = plain.encode('utf-8')[:72]
+        hashed_bytes = hashed.encode('utf-8')
+        return bcrypt.checkpw(pwd_bytes, hashed_bytes)
+    except Exception:
+        return False
 
 def create_access_token(data: dict) -> str:
     to_encode = data.copy()
