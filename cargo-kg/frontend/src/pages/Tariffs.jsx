@@ -20,7 +20,7 @@ const Tariffs = () => {
             <tbody>
               <tr className="border-b">
                 <td className="py-4">0.5 – 5 кг</td>
-                <td className="py-4 font-bold text-accent-600">285 сом</td>
+                <td className="py-4 font-bold text-accent-600">270 сом</td>
               </tr>
               <tr className="border-b">
                 <td className="py-4">5 – 20 кг</td>

@@ -62,7 +62,7 @@ const Header = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="https://wa.me/996555123456" target="_blank" rel="noreferrer" className="text-green-600 font-medium hover:text-green-700 transition">
+            <a href="https://wa.me/996702138700" target="_blank" rel="noreferrer" className="text-green-600 font-medium hover:text-green-700 transition">
               WhatsApp
             </a>
             <button 
